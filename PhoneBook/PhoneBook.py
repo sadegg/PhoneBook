@@ -1,8 +1,9 @@
 from Functions import *
 
-contacts = [["ali",9151737583],["sadegh",9903715402],["sajad",9369151980],["mahdi",9127352844]]
+contacts = []
 
 q = displaymenu()
+contacts = readfile()
 
 while q != 0 :
     # Add Contact
@@ -40,5 +41,6 @@ while q != 0 :
 
     q = displaymenu()
 
-
+if q==0:
+    savefile(contacts)
         
