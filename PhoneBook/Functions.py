@@ -16,21 +16,35 @@ def displaymenu():
     return q
 
 
+#def readfile():
+#    contacts=[]
+#    f = open("Contacts.txt","r")
+#    try:
+#        for line in f:
+#            contact= line[:-1].split(',')
+#            contacts.append(contact)
+#    finally:
+#        f.close()
+#        return contacts
+
 def readfile():
     contacts=[]
-    f = open("Contacts.txt","r")
-    for line in f:
-        contact= line[:-1].split(',')
-        contacts.append(contact)
-    f.close()
+    with open("Contacts.txt","r") as f:
+        for line in f:
+            contact= line[:-1].split(',')
+            contacts.append(contact)
     return contacts
+
 
 def savefile(contacts):
     f=open("Contacts.txt","w")
-    for contact in contacts:
-        f.write(contact[0]+',')
-        f.write(contact[1]+'\n')
-    f.close()
+    try:
+        for contact in contacts:
+            f.write(contact[0]+',')
+            f.write(contact[1]+'\n')
+    finally:
+        f.close()
+
     
     
 
